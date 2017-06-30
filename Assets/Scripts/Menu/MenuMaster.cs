@@ -9,6 +9,7 @@ public class MenuMaster : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
+        Screen.SetResolution(760, 600, false);
     }
 
     // Update is called once per frame

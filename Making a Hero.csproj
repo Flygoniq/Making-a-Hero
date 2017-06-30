@@ -86,11 +86,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CutsceneScripts\IGCutscene.cs" />
     <Compile Include="Assets\Scripts\GameMaster.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\MapScripts\BigCheckerboardScript.cs" />
-    <Compile Include="Assets\Scripts\MapScripts\Map Objects\MapObject.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Map Objects\Character.cs" />
+    <Compile Include="Assets\Scripts\MapScripts\Map Objects\MapObject.cs" />
     <Compile Include="Assets\Scripts\MapScripts\Map Objects\Obstacle.cs" />
     <Compile Include="Assets\Scripts\MapScripts\MapScript.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuMaster.cs" />

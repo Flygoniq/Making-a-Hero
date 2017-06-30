@@ -5,30 +5,33 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour {
 
     //MenuMaster menuMaster;
-    string window; //record current window.  localmap, for example.
+    string state; //record what is being run atm.  localmap, for example.
     public static GameState gameState;
-    public GameObject[] maps;
-    public GameObject[] characters;
     GameObject currentMap;
     MapScript currentMapScript;
+    public bool testing;
+
+    float timer;
+    int counter;
 
 	// Use this for initialization
 	void Awake () {
         //menuMaster = GameObject.FindGameObjectWithTag("MenuMaster").GetComponent<MenuMaster>();
         gameState = new GameState();
-        if (MenuMaster.SaveSlot == -1)
+        if (testing || MenuMaster.SaveSlot == -1)
         {
-            window = "localmap";
-            currentMap = Instantiate(maps[0], new Vector3(0, 0, 0), Quaternion.identity);
+            state = "localmap";
+            Instantiate(Resources.Load("Sprites/Character/TestSprite"), new Vector3(-320, -240, -1), Quaternion.identity);
+            currentMap = (GameObject)Instantiate(Resources.Load("Maps/Big Checkerboard"), new Vector3(0, 0, 0), Quaternion.identity);
             currentMapScript = currentMap.GetComponent<MapScript>();
-            Instantiate(characters[0], new Vector3(0, 0, 0), Quaternion.identity);
         }
-
+        timer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (window == "localmap") {
+        timer += Time.deltaTime;
+		if (state == "localmap") {
             currentMapScript.run();
         }
 	}
